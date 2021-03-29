@@ -19,31 +19,30 @@ public class frmReg extends javax.swing.JFrame {
     public frmReg() {
         initComponents();        
     }
-    public void captureDet(String fname,String lname,int age,double mark,String gender){
+    public void captureDet(String fname,String lname,String gender,int age,double mark){
+        // this method captures the details as per input and store/saves them in a file named students.txt
             String ageValue = String.valueOf(age);
             String markValue = String.valueOf(mark);
-     
-            String[] details = {fname,lname,ageValue,markValue,gender};
-     
-            for(int i=0;i<details.length;i++){
-                String capDetails = details[i];
                 
                 try{
                     FileWriter fw = new FileWriter("students.txt",true);
-                    fw.write(capDetails+"\r\n");
+                    fw.write(fname+";"+lname+";"+gender+";"+ageValue+";"+markValue+"\r\n");
                     fw.close();
                     txtName.setText("");
                     txtSurname.setText("");
                     txtMark.setText("");
                     txtAge.setText("");
                     buttonGroup.clearSelection();
+                    JOptionPane.showMessageDialog(rootPane, "Details captured successfully");
+                    txtName.requestFocusInWindow();
                 }
                 catch(Exception ex){
                     JOptionPane.showMessageDialog(rootPane, "An error has occured");
                 }
-            }
                 
     }
+    
+    
    
 
     /**
@@ -109,11 +108,19 @@ public class frmReg extends javax.swing.JFrame {
 
         jLabel2.setText("Name:");
 
+        lblName.setForeground(new java.awt.Color(255, 0, 0));
+
         jLabel4.setText("Surname:");
+
+        lblSurname.setForeground(new java.awt.Color(255, 0, 0));
 
         jLabel6.setText("Age:");
 
+        lblAge.setForeground(new java.awt.Color(255, 0, 0));
+
         jLabel8.setText("Mark %");
+
+        lblMark.setForeground(new java.awt.Color(255, 0, 0));
 
         jLabel3.setText("Gender");
 
@@ -132,6 +139,8 @@ public class frmReg extends javax.swing.JFrame {
                 rdoFemaleActionPerformed(evt);
             }
         });
+
+        lblGender.setForeground(new java.awt.Color(255, 0, 0));
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -259,24 +268,29 @@ public class frmReg extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
+        // this code gets the input values that the user puts or selects on each field
+        
         String name = txtName.getText();
         String lname = txtSurname.getText();
         int age = Integer.parseInt(txtAge.getText());
         double mark = Double.parseDouble(txtMark.getText());
         String gender = buttonGroup.getSelection().getActionCommand();
         
-        captureDet(name,lname,age,mark,gender);
+        // method captureDet is called
+        captureDet(name,lname,gender,age,mark);
         
     }//GEN-LAST:event_btnEnterActionPerformed
 
     private void rdoMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoMaleActionPerformed
-     if(rdoMale.isSelected()){
+     // sets the value to be stored when the Male radio button is clicked or selected
+        if(rdoMale.isSelected()){
             rdoMale.setActionCommand("Male");
         }   
     }//GEN-LAST:event_rdoMaleActionPerformed
 
     private void rdoFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoFemaleActionPerformed
-     if(rdoFemale.isSelected()){
+     // sets the value to be stored when the female radio button is selected or clicked
+        if(rdoFemale.isSelected()){
             rdoFemale.setActionCommand("Female");
         }
     }//GEN-LAST:event_rdoFemaleActionPerformed
