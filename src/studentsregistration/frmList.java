@@ -30,7 +30,7 @@ public class frmList extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblListDisplay = new javax.swing.JTable();
         btnView = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
@@ -59,7 +59,7 @@ public class frmList extends javax.swing.JFrame {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblListDisplay.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -181,13 +181,13 @@ public class frmList extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
+        jScrollPane1.setViewportView(tblListDisplay);
+        if (tblListDisplay.getColumnModel().getColumnCount() > 0) {
+            tblListDisplay.getColumnModel().getColumn(0).setResizable(false);
+            tblListDisplay.getColumnModel().getColumn(1).setResizable(false);
+            tblListDisplay.getColumnModel().getColumn(2).setResizable(false);
+            tblListDisplay.getColumnModel().getColumn(3).setResizable(false);
+            tblListDisplay.getColumnModel().getColumn(4).setResizable(false);
         }
 
         btnView.setText("View List");
@@ -281,6 +281,6 @@ public class frmList extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblListDisplay;
     // End of variables declaration//GEN-END:variables
 }
