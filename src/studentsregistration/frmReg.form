@@ -44,7 +44,7 @@
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="63" max="32767" attributes="0"/>
+              <EmptySpace pref="91" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -94,10 +94,10 @@
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="99" red="0" type="rgb"/>
+          <Color blue="ff" green="cc" red="cc" type="rgb"/>
         </Property>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+          <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
       </Properties>
 
@@ -129,13 +129,6 @@
                               <Component id="lblAge" max="32767" attributes="0"/>
                               <Component id="txtName" pref="198" max="32767" attributes="0"/>
                               <Component id="txtSurname" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblName" max="32767" attributes="0"/>
-                                      <Component id="lblSurname" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
                               <Component id="txtAge" alignment="0" min="-2" pref="76" max="-2" attributes="0"/>
                               <Component id="txtMark" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
@@ -144,6 +137,8 @@
                                   <Component id="rdoFemale" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="lblGender" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblName" alignment="0" max="32767" attributes="0"/>
+                              <Component id="lblSurname" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -207,6 +202,11 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtName">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblName">
           <Properties>
@@ -221,6 +221,11 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtSurname">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblSurname">
           <Properties>
@@ -235,6 +240,11 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtAge">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblAge">
           <Properties>
@@ -249,6 +259,11 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtMark">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblMark">
           <Properties>
@@ -268,6 +283,9 @@
               <ComponentRef name="buttonGroup"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Male"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdoMaleActionPerformed"/>
@@ -279,6 +297,9 @@
               <ComponentRef name="buttonGroup"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Female"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdoFemaleActionPerformed"/>

@@ -75,7 +75,6 @@ public class frmReg extends javax.swing.JFrame {
         btnEnter = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(617, 553));
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,22 +99,30 @@ public class frmReg extends javax.swing.JFrame {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel2.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel2.setText("Name:");
+
+        txtName.setBorder(null);
 
         lblName.setForeground(new java.awt.Color(255, 0, 0));
 
         jLabel4.setText("Surname:");
 
+        txtSurname.setBorder(null);
+
         lblSurname.setForeground(new java.awt.Color(255, 0, 0));
 
         jLabel6.setText("Age:");
 
+        txtAge.setBorder(null);
+
         lblAge.setForeground(new java.awt.Color(255, 0, 0));
 
         jLabel8.setText("Mark %");
+
+        txtMark.setBorder(null);
 
         lblMark.setForeground(new java.awt.Color(255, 0, 0));
 
@@ -123,6 +130,7 @@ public class frmReg extends javax.swing.JFrame {
 
         buttonGroup.add(rdoMale);
         rdoMale.setText("Male");
+        rdoMale.setBorder(null);
         rdoMale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdoMaleActionPerformed(evt);
@@ -131,6 +139,7 @@ public class frmReg extends javax.swing.JFrame {
 
         buttonGroup.add(rdoFemale);
         rdoFemale.setText("Female");
+        rdoFemale.setBorder(null);
         rdoFemale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdoFemaleActionPerformed(evt);
@@ -179,18 +188,15 @@ public class frmReg extends javax.swing.JFrame {
                             .addComponent(lblAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                             .addComponent(txtSurname)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblSurname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtMark, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(rdoMale)
                                 .addGap(18, 18, 18)
                                 .addComponent(rdoFemale))
-                            .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblSurname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -252,7 +258,7 @@ public class frmReg extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         pack();
@@ -274,28 +280,49 @@ public class frmReg extends javax.swing.JFrame {
                 String gender = buttonGroup.getSelection().getActionCommand();
                 
                 // code will clear the error messages in case a mistake is made on the first attempt
+                lblName.setText("");
+                lblSurname.setText("");
                 lblAge.setText("");
                 lblMark.setText("");
+                lblGender.setText("");
                 // clear code ends here
                 
                 captureDet(name,lname,gender,age,mark);
                 
             }
-            catch(NumberFormatException e){
-                lblAge.setText("Field cannot be empty");
-                lblMark.setText("Field cannot be empty");
-            }
                 catch(Exception e){
-                    JOptionPane.showMessageDialog(rootPane,"An error has occured try again");
-            }
-        
+                    String name= "";
+                    String lname = "";
+                    
+                    if(name!=""){
+                        name = txtName.getText();
+                    }
+                    else{
+                        lblName.setText("Field cannot be empty");
+                    }
+                    
+                    if(lname != ""){
+                        lname = txtSurname.getText();
+                    }
+                    else{
+                        lblSurname.setText("Field cannot be empty");
+                    }
+                    
+                    lblAge.setText("Field cannot be empty");
+                    lblMark.setText("Field cannot be empty");
+                    
+                    if(rdoMale.isSelected()==false && rdoFemale.isSelected()==false){
+                        lblGender.setText("Please select gender");
+                    }
+                }   
+                    
     }//GEN-LAST:event_btnEnterActionPerformed
 
     private void rdoMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoMaleActionPerformed
      // sets the value to be stored when the Male radio button is clicked or selected
         if(rdoMale.isSelected()){
             rdoMale.setActionCommand("Male");
-        }   
+        }
     }//GEN-LAST:event_rdoMaleActionPerformed
 
     private void rdoFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoFemaleActionPerformed
