@@ -33,7 +33,7 @@ public class frmReg extends javax.swing.JFrame {
                     txtMark.setText("");
                     txtAge.setText("");
                     buttonGroup.clearSelection();
-                    //JOptionPane.showMessageDialog(rootPane, "Details captured successfully");
+                    JOptionPane.showMessageDialog(rootPane, "Details captured successfully");
                     txtName.requestFocusInWindow();
                 }
                 catch(Exception ex){
@@ -41,47 +41,7 @@ public class frmReg extends javax.swing.JFrame {
                 }
                 
     }
-    public void errMessage(String fname,String lname,String gender,int age,double mark){
-        try{
-            fname = txtName.getText();
-                if("".equals(fname)){
-                    lblName.setText("Field cannot be empty"); 
-                }else if(fname.length()<2){
-                    lblName.setText("No Initials allowed");
-                }
-            
-            lname = txtSurname.getText();
-                if("".equals(lname)){
-                    lblSurname.setText("Field cannot be empty");
-                }else if(lname.length()<2){
-                    lblSurname.setText("No Initials allowed");
-                }
-            
-            gender = buttonGroup.getSelection().getActionCommand();
-                if("".equals(buttonGroup.getSelection().getActionCommand())){
-                    lblGender.setText("Please specify gender");
-                }
-                
-            age = 0;    
-            age = Integer.valueOf(txtAge.getText());
-                if(age<15){
-                    lblAge.setText("Please verify the person's age");
-                }
-             
-            mark = Double.valueOf(txtMark.getText());
-                if(mark<0 || mark>100.00){
-                    lblMark.setText("Enter a valid mark");
-                }
-            
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane, "Invalid Input");
-        }
-    }
     
-    
-   
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -306,17 +266,28 @@ public class frmReg extends javax.swing.JFrame {
 
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
         // this code gets the input values that the user puts or selects on each field
-        
-        String name = txtName.getText();
-        String lname = txtSurname.getText();
-        int age = Integer.parseInt(txtAge.getText());
-        double mark = Double.parseDouble(txtMark.getText());
-        String gender = buttonGroup.getSelection().getActionCommand();
-        
-        // method captureDet is called
-        errMessage(name,lname,gender,age,mark);
-        
-        captureDet(name,lname,gender,age,mark);
+        try{ 
+                String name = txtName.getText();
+                String lname = txtSurname.getText();
+                int age = Integer.parseInt(txtAge.getText());
+                double mark = Double.parseDouble(txtMark.getText());
+                String gender = buttonGroup.getSelection().getActionCommand();
+                
+                // code will clear the error messages in case a mistake is made on the first attempt
+                lblAge.setText("");
+                lblMark.setText("");
+                // clear code ends here
+                
+                captureDet(name,lname,gender,age,mark);
+                
+            }
+            catch(NumberFormatException e){
+                lblAge.setText("Field cannot be empty");
+                lblMark.setText("Field cannot be empty");
+            }
+                catch(Exception e){
+                    JOptionPane.showMessageDialog(rootPane,"An error has occured try again");
+            }
         
     }//GEN-LAST:event_btnEnterActionPerformed
 
