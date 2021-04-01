@@ -271,50 +271,58 @@ public class frmReg extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnterActionPerformed
-        // this code gets the input values that the user puts or selects on each field
-        try{ 
-                String name = txtName.getText();
-                String lname = txtSurname.getText();
-                int age = Integer.parseInt(txtAge.getText());
-                double mark = Double.parseDouble(txtMark.getText());
-                String gender = buttonGroup.getSelection().getActionCommand();
-                
-                // code will clear the error messages in case a mistake is made on the first attempt
-                lblName.setText("");
-                lblSurname.setText("");
-                lblAge.setText("");
-                lblMark.setText("");
-                lblGender.setText("");
-                // clear code ends here
-                
-                captureDet(name,lname,gender,age,mark);
-                
-            }
-                catch(Exception e){
-                    String name= "";
-                    String lname = "";
-                    
-                    if(name!=""){
-                        name = txtName.getText();
+// this code gets the input values that the user puts or selects on each field
+
+ String strAge = txtAge.getText();
+ String strMark = txtMark.getText();
+ 
+                try{ 
+                        String name = txtName.getText();
+                        String lname = txtSurname.getText();
+                        int age = Integer.parseInt(strAge);
+                        double mark = Double.parseDouble(strMark);
+                        String gender = buttonGroup.getSelection().getActionCommand();
+
+                        // code will clear the error messages in case a mistake is made on the first attempt
+                        lblName.setText("");
+                        lblSurname.setText("");
+                        lblAge.setText("");
+                        lblMark.setText("");
+                        lblGender.setText("");
+                        // clear code ends here
+
+                        captureDet(name,lname,gender,age,mark);
+
                     }
-                    else{
-                        lblName.setText("Field cannot be empty");
-                    }
-                    
-                    if(lname != ""){
-                        lname = txtSurname.getText();
-                    }
-                    else{
-                        lblSurname.setText("Field cannot be empty");
-                    }
-                    
-                    lblAge.setText("Field cannot be empty");
-                    lblMark.setText("Field cannot be empty");
-                    
-                    if(rdoMale.isSelected()==false && rdoFemale.isSelected()==false){
-                        lblGender.setText("Please select gender");
-                    }
-                }   
+                        catch(Exception e){
+                            String name=  txtName.getText();
+                            String lname = txtSurname.getText();
+                        
+                            if("".equals(name)){
+                                lblName.setText("Field cannot be empty");
+                            }else if(name.length()<=2){
+                                lblName.setText("Invalid input, no Initials allowed");
+                            }
+
+                            if("".equals(lname)){
+                                lblSurname.setText("Field cannot be empty");
+                            }else if(lname.length()<=2){
+                                lblSurname.setText("Invalid input, no Initials allowed");
+                            }
+
+                            if("".equals(strAge)){
+                                lblAge.setText("Field cannot be empty");
+                            }
+
+                            if("".equals(strMark)){
+                                lblMark.setText("Field cannot be empty");
+                            }
+
+                            if(rdoMale.isSelected()==false && rdoFemale.isSelected()==false){
+                                lblGender.setText("Please select gender");
+                            }
+                        }
+                           
                     
     }//GEN-LAST:event_btnEnterActionPerformed
 
